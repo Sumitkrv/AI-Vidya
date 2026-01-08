@@ -1,0 +1,35 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply antialiased;
+  }
+
+  /* Hide Scrollbar */
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* For Firefox */
+  * {
+    scrollbar-width: none;
+  }
+
+  /* For IE and Edge */
+  * {
+    -ms-overflow-style: none;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
