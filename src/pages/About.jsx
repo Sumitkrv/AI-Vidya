@@ -4,7 +4,8 @@ import {
   Target, Users, Award, Heart, Zap, Shield, 
   Globe, BookOpen, TrendingUp, Star, GraduationCap,
   Rocket, Lightbulb, Users2, Clock, CheckCircle,
-  Brain, Sparkles, ArrowRight
+  Brain, Sparkles, ArrowRight, ChevronRight, MapPin, Smartphone,
+  AlertCircle, HelpCircle
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Badge from '../components/Badge';
@@ -156,81 +157,74 @@ export default function About() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#163560] via-[#163560] to-[#1e4a8a] py-20 md:py-32">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{ 
-            backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23163560' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")" 
-          }}></div>
+      <section className="relative overflow-hidden min-h-screen flex items-center justify-center">
+        {/* Background Video */}
+        <div className="absolute inset-0 z-0">
+          <video 
+            autoPlay 
+            loop 
+            muted 
+            playsInline
+            className="w-full h-full object-cover"
+          >
+            <source src="/about video.mov" type="video/mp4" />
+          </video>
         </div>
         
-        <div className="absolute top-0 left-0 w-64 h-64 bg-[#163560]/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#163560]/5 rounded-full blur-3xl translate-x-1/3 translate-y-1/3" />
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-7xl mx-auto container-padding relative z-10 py-20 min-h-screen flex flex-col justify-between">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-center"
+            className="text-center w-full pt-20"
           >
-           
-            
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white" style={{ textShadow: '2px 4px 8px rgba(0, 0, 0, 0.8)' }}>
               Redefining Education with
-              <span className="block text-[#163560] mt-2">Artificial Intelligence</span>
+              <span className="block text-white mt-2">Artificial Intelligence</span>
             </h1>
-            
-            <p className="text-xl text-white/90 mb-10 max-w-3xl mx-auto">
-              AI Vidya bridges the gap between ambition and achievement through personalized, 
-              intelligent learning experiences that adapt to every student's unique journey.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/courses">
-                <Button 
-                  size="lg"
-                  variant="secondary"
-                  className="gap-2 shadow-xl hover:shadow-2xl"
-                >
-                  Explore Courses
-                  <ArrowRight size={20} />
-                </Button>
-              </Link>
-              <Link to="/pricing">
-                <Button 
-                  size="lg"
-                  variant="outline"
-                  className="border-white text-white hover:bg-white/10"
-                >
-                  Start Free Trial
-                </Button>
-              </Link>
-            </div>
           </motion.div>
+            
+          <div className="flex flex-col sm:flex-row gap-4 justify-center pb-12">
+            <Link to="/courses">
+              <Button 
+                size="md"
+                variant="secondary"
+                className="gap-2 shadow-xl hover:shadow-2xl bg-white !text-black hover:bg-white/90"
+              >
+                Explore Courses
+                <ArrowRight size={18} className="text-black" />
+              </Button>
+            </Link>
+            <Link to="/pricing">
+              <Button 
+                size="md"
+                variant="outline"
+                className="border-white text-white hover:bg-white/10 backdrop-blur-sm"
+              >
+                Start Free Trial
+              </Button>
+            </Link>
+          </div>
         </div>
       </section>
 
       {/* Stats Grid */}
-      <section className="py-12 relative -mt-12 z-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4 md:gap-6">
+      <section className="relative z-20 py-20 bg-white">
+        <div className="max-w-7xl mx-auto container-padding">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 lg:gap-12">
             {stats.map((stat, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
-                whileHover={{ y: -5 }}
-                className="bg-white rounded-2xl p-5 md:p-6 shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300 flex flex-col items-center text-center"
+                className="flex flex-col items-center text-center group"
               >
-                <div className="p-3 rounded-xl bg-gradient-to-br from-[#163560]/10 to-[#1e4a8a]/10 mb-3">
-                  {stat.icon}
-                </div>
-                <div className="text-3xl md:text-4xl font-bold text-[#163560] mb-2">
+                <div className="text-4xl md:text-5xl font-bold text-[#163560] mb-2 group-hover:scale-110 transition-transform duration-300">
                   {stat.value}
                 </div>
-                <div className="text-sm font-semibold text-gray-900 mb-1">{stat.label}</div>
-                <div className="text-xs text-gray-500">{stat.description}</div>
+                <div className="text-sm font-semibold text-slate-900 mb-1">{stat.label}</div>
+                <div className="text-xs text-slate-500">{stat.description}</div>
               </motion.div>
             ))}
           </div>
@@ -238,13 +232,14 @@ export default function About() {
       </section>
 
       {/* Story Section */}
-      <section className="py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20 items-center">
+      <section className="relative py-20 md:py-28 bg-white overflow-hidden">
+        <div className="max-w-7xl mx-auto container-padding relative">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.2 }}
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
             >
               <Badge variant="outline" className="mb-4" icon={Rocket}>
                 Our Journey
@@ -289,80 +284,412 @@ export default function About() {
             </motion.div>
             
             <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.3 }}
-              className="relative"
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="relative lg:pl-8"
             >
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+              {/* Main Image Container */}
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-gray-200">
                 <img
-                  src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                  src="/image.jpg"
                   alt="AI Learning Environment"
                   className="w-full h-[500px] object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#163560]/60 to-transparent" />
-                
-                {/* Floating Stats Card */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.5 }}
-                  className="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-xl"
-                >
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <div className="text-2xl font-bold text-[#163560]">98.7%</div>
-                      <div className="text-sm text-gray-600">Student Satisfaction</div>
-                    </div>
-                    <div className="flex items-center">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} size={16} className="fill-yellow-400 text-yellow-400" />
-                      ))}
-                    </div>
-                  </div>
-                </motion.div>
               </div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Values Section */}
-      <section ref={ref} className="py-16 md:py-24 bg-gradient-to-b from-white to-gray-50">
+      {/* Vision & Mission Section */}
+      <section className="relative bg-gradient-to-b from-white to-slate-50 py-24 lg:py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2.5 px-4 py-2 bg-blue-50 rounded-full mb-6 border border-blue-100">
+              <Heart className="w-4 h-4 text-[#163560]" />
+              <span className="text-xs font-bold text-[#163560] tracking-wider uppercase">Our Purpose</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
+              Driving India Towards <span className="bg-gradient-to-r from-[#163560] to-blue-600 bg-clip-text text-transparent">Digital Equality</span>
+            </h2>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-10 mb-16">
+            {/* Vision Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="relative group"
+            >
+              <div className="absolute -inset-1 bg-gradient-to-r from-[#163560] to-blue-600 rounded-2xl opacity-20 group-hover:opacity-30 transition-opacity blur-xl"></div>
+              <div className="relative bg-white rounded-2xl p-8 lg:p-10 border-2 border-slate-200 shadow-xl">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-14 h-14 bg-gradient-to-br from-[#163560] to-blue-600 rounded-xl flex items-center justify-center">
+                    <Target className="w-7 h-7 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-slate-900">Our Vision</h3>
+                </div>
+                <p className="text-lg text-slate-700 leading-relaxed mb-6">
+                  To create India's largest rural digital learning backbone where every student, youth, and adult — regardless of location, financial background, or access — can receive modern, affordable, AI-powered education from home.
+                </p>
+                <div className="space-y-3">
+                  {[
+                    "Education reaches villages, tribal belts, border areas",
+                    "AI supports learners 24×7",
+                    "Rural students get same quality as metro cities",
+                    "Digital literacy reaches every household"
+                  ].map((point, index) => (
+                    <div key={index} className="flex items-center gap-2">
+                      <ChevronRight className="w-4 h-4 text-[#163560] flex-shrink-0" />
+                      <p className="text-slate-600">{point}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Mission Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true }}
+              className="relative group"
+            >
+              <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-2xl opacity-20 group-hover:opacity-30 transition-opacity blur-xl"></div>
+              <div className="relative bg-white rounded-2xl p-8 lg:p-10 border-2 border-slate-200 shadow-xl">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-14 h-14 bg-gradient-to-br from-blue-600 to-cyan-500 rounded-xl flex items-center justify-center">
+                    <Sparkles className="w-7 h-7 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-slate-900">Our Mission</h3>
+                </div>
+                <p className="text-lg text-slate-700 leading-relaxed mb-6">
+                  To redefine education in rural India by democratizing access to world-class, AI-driven learning—making quality instruction available to every learner, regardless of location or circumstance.
+                </p>
+                <div className="space-y-3">
+                  {[
+                    "Geography is no longer destiny",
+                    "140M+ rural Indians have equal opportunity",
+                    "Every learner can learn, grow, and succeed",
+                    "Building an inclusive, AI-enabled India"
+                  ].map((point, index) => (
+                    <div key={index} className="flex items-center gap-2">
+                      <ChevronRight className="w-4 h-4 text-blue-600 flex-shrink-0" />
+                      <p className="text-slate-600">{point}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* What Drives Us */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            className="text-center mb-16"
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="relative"
           >
-            <Badge variant="accent" className="mb-4 mx-auto" icon={Sparkles}>
-              Our Philosophy
-            </Badge>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-              Core Values That <span className="text-[#163560]">Drive Us</span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              The principles that shape every decision, every course, and every interaction
-            </p>
+            <div className="absolute -inset-1 bg-gradient-to-r from-[#163560]/10 via-blue-100 to-[#163560]/10 rounded-2xl blur-xl"></div>
+            <div className="relative bg-gradient-to-br from-slate-50 to-white rounded-2xl p-8 lg:p-10 border-2 border-slate-200">
+              <h3 className="text-2xl font-bold text-slate-900 mb-8 text-center">What Drives Us</h3>
+              <div className="grid md:grid-cols-3 gap-8">
+                {[
+                  { icon: Target, title: "Passion for Social Impact", color: "from-[#EB5E26] to-orange-500" },
+                  { icon: GraduationCap, title: "Expertise in Digital Education", color: "from-blue-500 to-blue-600" },
+                  { icon: TrendingUp, title: "Commitment to Bridge Urban-Rural Gap", color: "from-[#163560] to-blue-700" }
+                ].map((item, index) => (
+                  <div key={index} className="flex flex-col items-center text-center">
+                    <div className={`w-16 h-16 bg-gradient-to-br ${item.color} rounded-2xl flex items-center justify-center mb-4 shadow-lg`}>
+                      <item.icon className="w-8 h-8 text-white" />
+                    </div>
+                    <p className="font-semibold text-slate-900">{item.title}</p>
+                  </div>
+                ))}
+              </div>
+              <p className="text-center text-lg font-semibold text-slate-700 mt-8 italic">
+                AI Vidya is more than a learning platform—it is a movement towards an inclusive, AI-enabled India.
+              </p>
+            </div>
           </motion.div>
+        </div>
+      </section>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {values.map((value, index) => (
+      {/* Target Audience & Regions */}
+      <section className="relative bg-gradient-to-b from-slate-50 to-white section-padding-lg">
+        <div className="max-w-7xl mx-auto container-padding">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2.5 px-4 py-2 bg-blue-50 rounded-full mb-6 border border-blue-100">
+              <MapPin className="w-4 h-4 text-blue-600" />
+              <span className="text-xs font-bold text-blue-700 tracking-wider uppercase">Who We Serve</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
+              Reaching <span className="bg-gradient-to-r from-[#163560] to-blue-600 bg-clip-text text-transparent">Bharat's Heartland</span>
+            </h2>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-12">
+            {/* Target Audience */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="relative h-full"
+            >
+              <div className="absolute -inset-1 bg-gradient-to-br from-blue-100 to-blue-200/50 rounded-2xl blur-xl"></div>
+              <div className="relative bg-white rounded-2xl p-8 lg:p-10 border-2 border-blue-100 shadow-xl h-full flex flex-col">
+                <h3 className="text-2xl font-bold text-slate-900 mb-6">Our Target Audience</h3>
+                <ul className="space-y-4 mb-6 flex-grow">
+                  {[
+                    "Students, youth and job-seekers from Tier-3 towns, villages, tribal and rural districts",
+                    "Schools with limited teachers seeking digital solutions",
+                    "Parents seeking affordable quality education",
+                    "Youth preparing for competitive exams or wanting digital skills",
+                    "Working individuals & homemakers seeking upskilling"
+                  ].map((audience, index) => (
+                    <li key={index} className="flex items-start gap-3">
+                      <div className="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <Users className="w-4 h-4 text-blue-600" />
+                      </div>
+                      <span className="text-slate-700">{audience}</span>
+                    </li>
+                  ))}
+                </ul>
+                <div className="p-5 bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl border border-blue-200">
+                  <p className="text-center font-bold text-blue-900">
+                    <span className="text-3xl">85%</span> of learners from rural & tier-3 areas report improved career prospects
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Focus Regions */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="relative h-full"
+            >
+              <div className="absolute -inset-1 bg-gradient-to-br from-blue-100 to-blue-200/50 rounded-2xl blur-xl"></div>
+              <div className="relative bg-white rounded-2xl p-8 lg:p-10 border-2 border-blue-100 shadow-xl h-full flex flex-col">
+                <h3 className="text-2xl font-bold text-slate-900 mb-6">Priority Regions</h3>
+                <div className="space-y-4 mb-6 flex-grow">
+                  {[
+                    "Odisha - Remote & tribal districts",
+                    "Bihar - Rural belts with educational gaps",
+                    "Northeast States - Hill regions & border areas",
+                    "Jharkhand - Tribal & backward regions",
+                    "Rajasthan - Desert & remote villages",
+                    "Himachal Pradesh - Hill & tribal areas"
+                  ].map((region, index) => (
+                    <div key={index} className="flex items-start gap-3">
+                      <div className="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <MapPin className="w-4 h-4 text-blue-600" />
+                      </div>
+                      <span className="text-slate-700">{region}</span>
+                    </div>
+                  ))}
+                </div>
+                <div className="p-5 bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl border border-blue-200">
+                  <p className="text-center font-bold text-blue-900">
+                    <span className="text-3xl">140M+</span> students in rural areas are potential beneficiaries
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Government Alignment Section */}
+      <section className="relative bg-white py-24 lg:py-32 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-blue-50/30"></div>
+        
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2.5 px-4 py-2 bg-gradient-to-r from-orange-50 to-green-50 rounded-full mb-6 border border-orange-100">
+              <Globe className="w-4 h-4 text-[#163560]" />
+              <span className="text-xs font-bold text-[#163560] tracking-wider uppercase">National Alignment</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
+              Aligned with India's <span className="text-[#163560]">National Goals</span>
+            </h2>
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+              AI Vidya supports government initiatives to build a digitally empowered and skilled India
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6 mb-12">
+            {[
+              { title: "Digital India", image: "/digital-india.jpeg" },
+              { title: "Skill India", image: "/skill-india.png" },
+              { title: "NEP 2020", image: "/nep-2020.jpeg" },
+              { title: "AI For All", image: "/ai-for-all.jpeg" },
+              { title: "Viksit Bharat @2047", image: "/viksit-bharat.jpeg" }
+            ].map((initiative, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: index * 0.1 }}
-                whileHover={{ y: -8 }}
-                className={`bg-gradient-to-br ${value.color} rounded-3xl p-8 border border-gray-200/50 hover:shadow-2xl transition-all duration-300`}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="relative group"
               >
-                <div className="w-16 h-16 rounded-2xl bg-white flex items-center justify-center mb-6 shadow-lg">
-                  {value.icon}
+                <div className="relative bg-white rounded-2xl p-6 border-2 border-slate-200 hover:border-blue-300 transition-all shadow-lg hover:shadow-xl">
+                  <div className="w-full h-32 flex items-center justify-center mb-4 bg-gradient-to-br from-slate-50 to-blue-50 rounded-xl p-4">
+                    <img 
+                      src={initiative.image} 
+                      alt={initiative.title}
+                      className="max-w-full max-h-full object-contain"
+                    />
+                  </div>
+                  <h3 className="font-bold text-slate-900 text-sm text-center">{initiative.title}</h3>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{value.title}</h3>
-                <p className="text-gray-600">{value.description}</p>
               </motion.div>
             ))}
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="relative"
+          >
+            <div className="absolute -inset-2 bg-gradient-to-r from-orange-200 via-white to-green-200 rounded-3xl blur-2xl opacity-50"></div>
+            <div className="relative bg-gradient-to-br from-orange-50 via-white to-green-50 rounded-2xl p-8 lg:p-10 border-2 border-orange-100">
+              <p className="text-center text-xl md:text-2xl font-bold text-slate-900">
+                AI Vidya is not just a platform — it is a{' '}
+                <span className="bg-gradient-to-r from-[#163560] to-blue-600 bg-clip-text text-transparent">
+                  national capacity-building initiative
+                </span>{' '}
+                dedicated to creating an inclusive, knowledge-rich, and tech-empowered Bharat.
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Real Impact & Why Choose AI Vidya */}
+      <section className="relative bg-white py-12 lg:py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+              Why Choose <span className="text-[#163560]">AI Vidya</span>
+            </h2>
+            <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+              Empowering every learner with accessible, intelligent, and impactful education
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-3 gap-8 lg:gap-12">
+            {/* For Students & Youth */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+              className="group"
+            >
+              <div className="bg-white rounded-2xl p-8 h-full border-2 border-slate-200 hover:border-[#163560] hover:shadow-lg transition-all">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-10 h-10 rounded-lg bg-[#163560] flex items-center justify-center">
+                    <Users className="w-5 h-5 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-slate-900">For Students & Youth</h3>
+                </div>
+                <ul className="space-y-3.5">
+                  {[
+                    "Learn anytime, anywhere - even in low-internet areas",
+                    "Affordable subscription plans for every family",
+                    "Visual, multilingual explanations",
+                    "AI-based personalized learning paths",
+                    "Doubt-clearing without fear",
+                    "Career & competitive exam guidance",
+                    "Digital, employability & life skills included"
+                  ].map((benefit, index) => (
+                    <li key={index} className="flex items-start gap-2.5 text-base text-slate-700">
+                      <div className="w-1.5 h-1.5 rounded-full bg-[#163560] mt-2 flex-shrink-0"></div>
+                      <span>{benefit}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </motion.div>
+
+            {/* For Parents */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              viewport={{ once: true }}
+              className="group"
+            >
+              <div className="bg-white rounded-2xl p-8 h-full border-2 border-slate-200 hover:border-[#163560] hover:shadow-lg transition-all">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-10 h-10 rounded-lg bg-[#163560] flex items-center justify-center">
+                    <Heart className="w-5 h-5 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-slate-900">For Parents</h3>
+                </div>
+                <ul className="space-y-3.5">
+                  {[
+                    "Transparent learning reports & progress tracking",
+                    "Safe & structured learning platform",
+                    "Affordable alternative to coaching centres",
+                    "Quality education at fraction of tuition cost",
+                    "Monitor your child's learning journey",
+                    "Peace of mind with verified content"
+                  ].map((benefit, index) => (
+                    <li key={index} className="flex items-start gap-2.5 text-base text-slate-700">
+                      <div className="w-1.5 h-1.5 rounded-full bg-[#163560] mt-2 flex-shrink-0"></div>
+                      <span>{benefit}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </motion.div>
+
+            {/* For Schools / Government */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="group"
+            >
+              <div className="bg-white rounded-2xl p-8 h-full border-2 border-slate-200 hover:border-[#163560] hover:shadow-lg transition-all">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-10 h-10 rounded-lg bg-[#163560] flex items-center justify-center">
+                    <Globe className="w-5 h-5 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-slate-900">For Schools / Government</h3>
+                </div>
+                <ul className="space-y-3.5">
+                  {[
+                    "Scalable model for rural upliftment",
+                    "Support government schools with digital learning",
+                    "Addresses NEP, Skill India & Digital India goals",
+                    "High social impact with measurable outputs",
+                    "Bridge teacher shortage gaps",
+                    "Data-driven insights for policy making"
+                  ].map((benefit, index) => (
+                    <li key={index} className="flex items-start gap-2.5 text-base text-slate-700">
+                      <div className="w-1.5 h-1.5 rounded-full bg-[#163560] mt-2 flex-shrink-0"></div>
+                      <span>{benefit}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -509,10 +836,10 @@ export default function About() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-16 md:py-24 bg-gradient-to-br from-[#163560] via-[#163560] to-[#1e4a8a] relative overflow-hidden">
+      <section className="py-16 md:py-24 bg-gradient-to-br from-[#4151a3] via-[#23255f] to-[#23255f] relative overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute inset-0" style={{ 
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23163560' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")` 
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")` 
           }}></div>
         </div>
         

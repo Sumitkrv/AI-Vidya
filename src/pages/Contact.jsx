@@ -47,8 +47,8 @@ export default function Contact() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-royal-purple via-electric-violet to-soft-blue py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="bg-gradient-to-br from-royal-purple via-electric-violet to-soft-blue section-padding-lg">
+        <div className="max-w-7xl mx-auto container-padding text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -64,9 +64,9 @@ export default function Contact() {
       </section>
 
       {/* Contact Info Cards */}
-      <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+      <section className="section-padding-md">
+        <div className="max-w-7xl mx-auto container-padding">
+          <div className="grid grid-cols-1 md:grid-cols-3 grid-gap-md mb-16">
             {contactInfo.map((item, index) => (
               <motion.a
                 key={index}
@@ -74,7 +74,7 @@ export default function Contact() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-white rounded-2xl p-8 text-center hover:shadow-xl transition-shadow"
+                className="bg-white rounded-2xl card-padding text-center hover:shadow-xl transition-all duration-300"
               >
                 <div className="w-16 h-16 bg-gradient-to-br from-royal-purple to-electric-violet rounded-xl flex items-center justify-center text-white mx-auto mb-4">
                   {item.icon}

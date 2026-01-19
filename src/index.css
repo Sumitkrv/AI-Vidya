@@ -28,6 +28,48 @@
   }
 }
 
+@layer components {
+  /* Consistent Section Spacing - 4px base scale */
+  .section-padding-sm {
+    @apply py-12 md:py-16;
+  }
+  
+  .section-padding-md {
+    @apply py-16 md:py-20 lg:py-24;
+  }
+  
+  .section-padding-lg {
+    @apply py-20 md:py-24 lg:py-32;
+  }
+  
+  /* Consistent Container */
+  .container-padding {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+  
+  /* Card Styles */
+  .card-base {
+    @apply bg-white rounded-2xl border-2 shadow-lg transition-all duration-300;
+  }
+  
+  .card-padding {
+    @apply p-6 lg:p-8;
+  }
+  
+  /* Consistent Grid Gaps */
+  .grid-gap-sm {
+    @apply gap-4;
+  }
+  
+  .grid-gap-md {
+    @apply gap-6 lg:gap-8;
+  }
+  
+  .grid-gap-lg {
+    @apply gap-8 lg:gap-10;
+  }
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;

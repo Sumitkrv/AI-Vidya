@@ -1,14 +1,14 @@
 export const courses = [
   {
     id: 1,
-    title: 'Advanced UI/UX Masterclass',
+    title: 'UI/UX Masterclass',
     category: 'UI/UX Design',
     instructor: {
       name: 'Sarah Chen',
       avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400',
       role: 'Lead Designer at Figma'
     },
-    image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800',
+    image: '/uiux.jpeg',
     price: 89,
     originalPrice: 149,
     rating: 4.9,
@@ -41,7 +41,7 @@ export const courses = [
       avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400',
       role: 'Senior Engineer at Google'
     },
-    image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800',
+    image: '/Fullstack.jpeg',
     price: 129,
     originalPrice: 199,
     rating: 4.8,
@@ -74,7 +74,7 @@ export const courses = [
       avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400',
       role: 'AI Research Scientist'
     },
-    image: 'https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800',
+    image: '/ML.jpeg',
     price: 99,
     originalPrice: 179,
     rating: 4.9,

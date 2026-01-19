@@ -1,9 +1,11 @@
 
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Palette, Code, Smartphone, TrendingUp, Brain, Video, Camera, Database, Shield, Megaphone, Pencil, Music } from 'lucide-react';
+import { Palette, Code, Smartphone, TrendingUp, Brain, Video, Camera, Database, Shield, Megaphone, Pencil, Music, BookOpen } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Button from '../components/Button';
+import CourseCard from '../components/CourseCard';
+import { mainCourseCategories } from '../data/mainCourses';
 
 export default function Categories() {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
@@ -166,6 +168,30 @@ export default function Categories() {
               </div>
               <div className="text-gray-600">Avg. Rating</div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured: Main Course Categories */}
+      <section className="py-20 bg-gradient-to-b from-white to-slate-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2.5 px-4 py-2 bg-gradient-to-r from-[#163560]/10 to-blue-100 rounded-full mb-6">
+              <BookOpen className="w-4 h-4 text-[#163560]" />
+              <span className="text-xs font-bold text-[#163560] tracking-wider uppercase">Featured Programs</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Our Core Learning Paths
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Comprehensive programs designed for rural India - from academic excellence to career success
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {mainCourseCategories.map((course, index) => (
+              <CourseCard key={course.id} course={course} index={index} />
+            ))}
           </div>
         </div>
       </section>

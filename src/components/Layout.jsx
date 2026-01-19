@@ -34,24 +34,27 @@ export default function Layout() {
     <div className="min-h-screen flex flex-col bg-white">
       {/* Header */}
       <header className={`sticky top-0 z-50 bg-white transition-all duration-300 ${isScrolled ? 'shadow-lg' : 'shadow-sm'}`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
+        <div className="max-w-7xl mx-auto container-padding">
+          <div className="flex justify-between items-center h-20">
             {/* Logo with Government Identity */}
             <Link to="/" className="flex items-center space-x-3">
               <img 
                 src="/ai-vidya-logo.png" 
                 alt="AI VIDYA Logo" 
-                className="h-12 w-auto object-contain"
+                className="h-14 w-auto object-contain"
+                onClick={() => {
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
               />
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center space-x-1">
+            <nav className="hidden lg:flex items-center space-x-2">
               {navLinks.map((link) => (
                 <Link
                   key={link.to}
                   to={link.to}
-                  className={`px-4 py-2.5 rounded-lg text-sm font-medium transition-all flex items-center space-x-2 ${
+                  className={`px-5 py-2.5 rounded-lg text-sm font-medium transition-all flex items-center gap-2 ${
                     isActive(link.to)
                       ? 'bg-white text-black border-b-2 border-black'
                       : 'text-black/90 hover:bg-black/10 hover:text-black'
@@ -64,16 +67,16 @@ export default function Layout() {
             </nav>
 
             {/* CTA Buttons - Government Style */}
-            <div className="hidden lg:flex items-center space-x-3">
+            <div className="hidden lg:flex items-center gap-4">
               <Link
                 to="/login"
-                className="px-5 py-2.5 text-sm font-medium bg-[#163560] text-white rounded-lg hover:bg-[#1e4a8a] hover:shadow-lg hover:shadow-[#163560]/30 transition-all hover:-translate-y-0.5"
+                className="px-6 py-3 text-sm font-semibold bg-[#4151a3] text-white rounded-lg hover:bg-[#23255f] hover:shadow-lg hover:shadow-[#4151a3]/20 transition-all duration-300 hover:-translate-y-0.5"
               >
                 Student Login
               </Link>
               <Link
                 to="/register"
-                className="px-5 py-2.5 bg-[#163560] text-white text-sm font-medium rounded-lg hover:bg-[#1e4a8a] hover:shadow-lg hover:shadow-[#163560]/30 transition-all hover:-translate-y-0.5"
+                className="px-6 py-3 bg-[#4151a3] text-white text-sm font-semibold rounded-lg hover:bg-[#23255f] hover:shadow-lg hover:shadow-[#4151a3]/20 transition-all duration-300 hover:-translate-y-0.5"
               >
                 Register Free
               </Link>
@@ -106,7 +109,7 @@ export default function Layout() {
                     onClick={() => setMobileMenuOpen(false)}
                     className={`flex items-center space-x-3 px-4 py-3 rounded-lg text-sm font-medium ${
                       isActive(link.to)
-                        ? 'bg-[#163560] text-white'
+                        ? 'bg-[#4151a3] text-white'
                         : 'text-gray-700 hover:bg-gray-100'
                     }`}
                   >
@@ -118,14 +121,14 @@ export default function Layout() {
                   <Link
                     to="/login"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="block w-full px-4 py-3 text-center bg-[#163560] text-white text-sm font-medium rounded-lg hover:bg-[#1e4a8a] hover:shadow-md"
+                    className="block w-full px-4 py-3 text-center bg-[#4151a3] text-white text-sm font-medium rounded-lg hover:bg-[#23255f] hover:shadow-md"
                   >
                     Student Login
                   </Link>
                   <Link
                     to="/register"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="block w-full px-4 py-3 text-center bg-[#163560] text-white text-sm font-medium rounded-lg hover:bg-[#1e4a8a] hover:shadow-md"
+                    className="block w-full px-4 py-3 text-center bg-[#4151a3] text-white text-sm font-medium rounded-lg hover:bg-[#23255f] hover:shadow-md"
                   >
                     Register Free
                   </Link>
@@ -142,9 +145,9 @@ export default function Layout() {
       </main>
 
       {/* Government Footer */}
-      <footer className="bg-gradient-to-b from-[#163560] to-[#000000] text-white pt-14 pb-8 mt-20 border-t border-[#1e3550]/40">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-10">
+      <footer className="bg-gradient-to-b from-[#4151a3] to-[#23255f] text-white pt-16 pb-8 mt-24 border-t border-[#4151a3]/40">
+        <div className="max-w-7xl mx-auto container-padding">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 lg:gap-12 mb-12">
             {/* Branding & Mission */}
             <div className="md:col-span-2 flex flex-col gap-4">
               <div className="flex items-center gap-3 mb-2">
@@ -158,11 +161,11 @@ export default function Layout() {
                 An initiative by the Government of Odisha to provide free, quality digital education to all residents. Empowering students through accessible learning resources.
               </p>
               <div className="flex gap-6 mt-2">
-                <div className="bg-[#163560]/80 px-4 py-2 rounded-lg border border-[#1e4a8a]/30">
+                <div className="bg-[#23255f]/80 px-4 py-2 rounded-lg border border-[#4151a3]/30">
                   <div className="text-lg font-bold text-white">100%</div>
                   <div className="text-white/70 text-xs">Free Access</div>
                 </div>
-                <div className="bg-[#163560]/80 px-4 py-2 rounded-lg border border-[#1e4a8a]/30">
+                <div className="bg-[#23255f]/80 px-4 py-2 rounded-lg border border-[#4151a3]/30">
                   <div className="text-lg font-bold text-white">30+</div>
                   <div className="text-white/70 text-xs">Districts Covered</div>
                 </div>

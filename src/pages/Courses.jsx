@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Search, Filter, Star, Users, Clock } from 'lucide-react';
+import { Search, Filter, Star, Users, Clock, BookOpen } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Badge from '../components/Badge';
 import Card from '../components/Card';
 import Button from '../components/Button';
+import CourseCard from '../components/CourseCard';
+import { mainCourseCategories } from '../data/mainCourses';
 
 export const courses = [
   {
@@ -227,8 +229,8 @@ export default function Courses() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-[#2A5C8F] via-[#163560] to-[#1A4D7C] py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="bg-gradient-to-br from-[#2A5C8F] via-[#163560] to-[#1A4D7C] section-padding-lg">
+        <div className="max-w-7xl mx-auto container-padding">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -256,9 +258,11 @@ export default function Courses() {
         </div>
       </section>
 
+      {/* ...existing code... */}
+
       {/* Filters */}
-      <section className="py-8 border-b bg-white sticky top-16 z-40">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-6 border-b bg-white sticky top-20 z-40">
+        <div className="max-w-7xl mx-auto container-padding">
           <div className="flex flex-col md:flex-row gap-4">
             {/* Category Filter */}
             <div className="flex-1">
@@ -298,8 +302,8 @@ export default function Courses() {
       </section>
 
       {/* Courses Grid */}
-      <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="section-padding-md">
+        <div className="max-w-7xl mx-auto container-padding">
           <div className="flex justify-between items-center mb-8">
             <p className="text-gray-600">
               Showing <span className="font-semibold text-gray-900">{filteredCourses.length}</span> courses
@@ -326,9 +330,6 @@ export default function Courses() {
                         alt={course.title}
                         className="w-full h-48 object-cover"
                       />
-                      <div className="absolute top-4 right-4">
-                        <Badge variant="primary">{course.level}</Badge>
-                      </div>
                       <img
                         src={course.instructor.avatar}
                         alt={course.instructor.name}

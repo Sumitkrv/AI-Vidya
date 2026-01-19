@@ -10,16 +10,16 @@ export default function StatsBar() {
   ];
 
   return (
-    <section className="bg-white py-12 border-y border-gray-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+    <section className="bg-white section-padding-sm border-y border-gray-100">
+      <div className="max-w-7xl mx-auto container-padding">
+        <div className="grid grid-cols-2 md:grid-cols-4 grid-gap-md">
           {stats.map((stat, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
+              transition={{ delay: index * 0.1, duration: 0.5, ease: 'easeOut' }}
               className="text-center"
             >
               <div className="flex justify-center mb-3 text-royal-purple">
